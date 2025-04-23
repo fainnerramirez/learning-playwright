@@ -1,0 +1,1 @@
+{"meta":{"configOverrides":{},"state":{"domain":"avianca.com","cookiesEnabled":true}},"consent":[{"value":{"general":"in"},"version":"1.0","standard":"Adobe"}],"query":{"identity":{"fetch":["ECID"]}},"identityMap":{"ECID":[{"id":"79888833435450049020722684754028120135"}]}}

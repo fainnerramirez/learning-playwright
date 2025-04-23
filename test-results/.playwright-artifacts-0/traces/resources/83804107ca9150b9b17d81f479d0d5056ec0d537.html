@@ -1,0 +1,18 @@
+<html><body>
+<script type="module">
+    if (navigator.joinAdInterestGroup) {
+        const addIgScript = document.createElement('script');
+        let basePath = 'https://us.creativecdn.com/ig-membership';
+        let fencedFramesEnabled = window.FencedFrameConfig !== undefined || 'src' in document.createElement('fencedframe');
+        let runAdAuctionEnabled = navigator.runAdAuction !== undefined
+        let label = null;
+        if ('cookieDeprecationLabel' in navigator) {
+            label = await navigator.cookieDeprecationLabel.getValue();
+        }
+        let basEnabled = navigator.getInterestGroupAdAuctionData !== undefined;
+        let params = new URLSearchParams({ntk : 'HFeyPY7wS7ITfTzMqof8f7XRMvWXOiFxuYGsNlTxuhuLHdR1EX-VkCESTFOs4yYitUmLXrHAi9hH_H3wTJ6yXEpq7tueRS6Vcvt0kE9RXkQ',lbl: label, ff: fencedFramesEnabled,checked: true,bas: basEnabled,ra        : runAdAuctionEnabled });
+        addIgScript.setAttribute('src', basePath + '?' + params.toString());
+        document.body.appendChild(addIgScript);
+    }
+</script>
+</body></html>
