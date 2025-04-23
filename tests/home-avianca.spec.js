@@ -33,24 +33,33 @@ test.describe("Busqueda en newSite de avianca", () => {
         await page.locator(".station-control-list_item_link").first().click();
 
         //fecha de ida y de vuelta
-        // const isCheckIdaYVuelta = await page.locator("#journeytypeId_0").isChecked;
+        const isCheckIdaYVuelta = await page.locator("#journeytypeId_0").isChecked;
 
-        // if (isCheckIdaYVuelta) {
-        //     const ida = await page.locator("#departureDateButtonId");
-        //     ida.click();
-        //     const dayWrapper = page.locator(".ngb-dp-day", {
-        //         hasNot: await page.locator(".disabled")
-        //     });
+        if (isCheckIdaYVuelta) {
+            const ida = await page.locator("#departureDateButtonId");
+            ida.click();
+            const dayWrapper = page.locator(".ngb-dp-day", {
+                hasNot: await page.locator(".disabled")
+            });
 
-        //     const datesIda = await dayWrapper.locator(".custom-day_day");
-        //     datesIda.first().click();
+            const datesIda = await dayWrapper.locator(".custom-day_day");
+            datesIda.first().click();
 
-        //     const vuelta = await page.locator("#arrivalInputDatePickerId");
-        //     vuelta.click();
+            const vuelta = await page.locator("#arrivalInputDatePickerId");
+            vuelta.click();
 
-        //     const datesVuelta = await dayWrapper.locator(".custom-day_day");
-        //     datesVuelta.first().click();
-        // }
+            const datesVuelta = await dayWrapper.locator(".custom-day_day");
+            datesVuelta.first().click();
+        }
+        else {
+            const ida = await page.locator("#departureDateButtonId");
+            ida.click();
+            const dayWrapper = page.locator(".ngb-dp-day", {
+                hasNot: await page.locator(".disabled")
+            });
+            const datesIda = await dayWrapper.locator(".custom-day_day");
+            datesIda.first().click();
+        }
 
         //buscar button
         const buttonSearch = await page.locator("#searchButton");
