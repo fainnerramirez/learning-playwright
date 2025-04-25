@@ -12,10 +12,8 @@ test.describe("Busqueda en newSite de avianca", () => {
         });
 
         //si existe la sessión de aceptación de Cookies
-        // const cookieIsVisible = page.isVisible("#onetrust-accept-btn-handler");
-        // cookieIsVisible.then(async (response) => {
-        //     if(response) await page.locator("#onetrust-accept-btn-handler").click();
-        // })
+        const cookieIsVisible = page.isVisible("#onetrust-accept-btn-handler");
+        if(cookieIsVisible) page.locator("#onetrust-accept-btn-handler").click();
 
         //Rellenando los valores de la búsqueda
 
