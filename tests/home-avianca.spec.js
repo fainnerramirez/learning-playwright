@@ -1,6 +1,4 @@
-import { test, firefox, chromium, expect } from "@playwright/test";
-
-test.use({ locale: 'es-ES' });
+import { test, chromium } from "@playwright/test";
 
 test.describe("Busqueda en newSite de avianca", () => {
     test('Abrir Home de Avianca', async () => {
@@ -9,62 +7,58 @@ test.describe("Busqueda en newSite de avianca", () => {
         const context = await browser.newContext();
         const page = await context.newPage();
 
-        await page.goto("https://www.avianca.com", {
-            waitUntil: "domcontentloaded"
+        await page.goto("https://www.avianca.com/", {
+            waitUntil: "domcontentloaded",
         });
 
         //si existe la sessión de aceptación de Cookies
-        const cookieIsVisible = page.isVisible("#onetrust-accept-btn-handler");
-        if (cookieIsVisible) await page.getByRole("button", { name: 'Aceptar' }).click();
+        // const cookieIsVisible = page.isVisible("#onetrust-accept-btn-handler");
+        // cookieIsVisible.then(async (response) => {
+        //     if(response) await page.locator("#onetrust-accept-btn-handler").click();
+        // })
 
         //Rellenando los valores de la búsqueda
 
         //Origen
-        const origen = await page.locator("#originDiv");
-        await origen.click();
+        const origen = await page.locator("#originDiv").click();
         await origen.getByPlaceholder("Origen").fill("Cali");
         origen.press("Enter");
         await page.locator(".station-control-list_item_link").first().click();
 
         //Destino
-        const destino = await page.locator(".control_field-inbound").first();
+        const destino = await page.locator(".control_field-inbound").first().click();
         await destino.getByPlaceholder("Hacia").fill("Arauca");
-        destino.press("Enter");
         await page.locator(".station-control-list_item_link").first().click();
 
         //fecha de ida y de vuelta
-        const isCheckIdaYVuelta = await page.locator("#journeytypeId_0").isChecked;
+        const isCheckIdaYVuelta = await page.locator("#journeytypeId_0").isChecked();
 
         if (isCheckIdaYVuelta) {
+
             const ida = await page.locator("#departureDateButtonId");
-            ida.click();
-            const dayWrapper = await page.locator(".ngb-dp-day", {
-                hasNot: await page.locator(".disabled")
-            });
+            await ida.click();
+            const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
 
             const datesIda = await dayWrapper.locator(".custom-day_day");
-            datesIda.first().click();
+            await datesIda.first().click();
 
             const vuelta = await page.locator("#arrivalInputDatePickerId");
-            vuelta.first().click();
+            await vuelta.click();
 
             const datesVuelta = await dayWrapper.locator(".custom-day_day");
-            datesVuelta.first().click();
+            await datesVuelta.first().click();
         }
         else {
+
             const ida = await page.locator("#departureDateButtonId");
-            ida.click();
-            const dayWrapper = await page.locator(".ngb-dp-day", {
-                hasNot: await page.locator(".disabled")
-            });
+            await ida.click();
+            const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
             const datesIda = await dayWrapper.locator(".custom-day_day");
-            datesIda.first().click();
+            await datesIda.first().click();
         }
 
         //buscar button
         const buttonSearch = await page.locator("#searchButton");
-        buttonSearch.click();
+        await buttonSearch.click();
     });
 });
-
-
