@@ -7,7 +7,7 @@ export const test = base.extend({
       return elementHandle !== null;
     };
 
-    page.selectOrigin = async (origin: string) => {
+    page.selectOriginFlight = async (origin: string) => {
       const origen = await page.locator("#originDiv");
       await origen.click();
       await origen.getByPlaceholder("Origen").fill(origin);
@@ -15,7 +15,7 @@ export const test = base.extend({
       await page.locator(".station-control-list_item_link").first().click();
     };
 
-    page.selectDestination = async (destination: string) => {
+    page.selectDestinationFlight = async (destination: string) => {
       const destino = await page.getByPlaceholder("Hacia");
       await destino.fill(destination);
       await destino.press("Enter");

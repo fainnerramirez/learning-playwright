@@ -15,9 +15,9 @@ test.describe("Busqueda en newSite de avianca", () => {
         // Rellenando los valores de la búsqueda
 
         // Origen
-        await page.selectOrigin("Mede");
+        await page.selectOriginFlight("Mede");
         // Destino
-        await page.selectDestination("Bogo");
+        await page.selectDestinationFlight("Bogo");
 
         // //fecha de ida y de vuelta
         // const isCheckIdaYVuelta = await page.locator("#journeytypeId_0").isChecked();
