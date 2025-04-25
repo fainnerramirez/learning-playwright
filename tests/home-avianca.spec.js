@@ -13,18 +13,18 @@ test.describe("Busqueda en newSite de avianca", () => {
 
         //si existe la sessión de aceptación de Cookies
         const cookieIsVisible = page.isVisible("#onetrust-accept-btn-handler");
-        if(cookieIsVisible) page.locator("#onetrust-accept-btn-handler").click();
+        if (cookieIsVisible) page.locator("#onetrust-accept-btn-handler").click();
 
-        //Rellenando los valores de la búsqueda
+        // Rellenando los valores de la búsqueda
 
-        //Origen
-        const origen = await page.locator("#originDiv").click();
-        await origen.getByPlaceholder("Origen").fill("Cali");
-        origen.press("Enter");
+        // Origen
+        page.locator("#originBtn").click();
+        await page.locator("#originBtn").fill("Cali");
+        page.press("Enter");
         await page.locator(".station-control-list_item_link").first().click();
 
         //Destino
-        const destino = await page.locator(".control_field-inbound").first().click();
+        const destino = await page.locator(".control_field-inbound").first();
         await destino.getByPlaceholder("Hacia").fill("Arauca");
         await page.locator(".station-control-list_item_link").first().click();
 
