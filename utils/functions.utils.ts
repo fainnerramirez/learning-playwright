@@ -2,12 +2,12 @@ import { test as base } from '@playwright/test';
 
 export const test = base.extend({
   page: async ({ page }, use) => {
-    page.isElementPresent = async (selector) => {
+    page.isElementPresent = async (selector: string) => {
       const elementHandle = await page.$(selector);
       return elementHandle !== null;
     };
 
-    page.selectOrigin = async (origin = "bogo") => {
+    page.selectOrigin = async (origin: string) => {
       const origen = await page.locator("#originDiv");
       await origen.click();
       await origen.getByPlaceholder("Origen").fill(origin);
@@ -15,9 +15,11 @@ export const test = base.extend({
       await page.locator(".station-control-list_item_link").first().click();
     };
 
-    page.selectDestination = async (destination = "bogo") => {
+    page.selectDestination = async (destination: string) => {
       const destino = await page.getByPlaceholder("Hacia");
       await destino.fill(destination);
+      await destino.press("Enter");
+      await page.waitForTimeout(2000);
       await page.locator(".station-control-list_item_link").first().click();
     };
 

@@ -14,7 +14,7 @@ test.describe("Busqueda en newSite de avianca", () => {
 
         // Rellenando los valores de la búsqueda
 
-        //Origen
+        // Origen
         await page.selectOrigin("Mede");
         // Destino
         await page.selectDestination("Bogo");
