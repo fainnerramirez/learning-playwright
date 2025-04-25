@@ -34,14 +34,25 @@ test.describe("Busqueda en newSite de avianca", () => {
         if (isCheckIdaYVuelta) {
 
             const ida = await page.locator("#departureDateButtonId");
+<<<<<<< HEAD
             await ida.click();
             const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
+=======
+            ida.click();
+            const dayWrapper = page.locator(".ngb-dp-day", {
+                hasNot: await page.locator(".disabled")
+            });
+>>>>>>> parent of f4fd19d (feat: update changes)
 
             const datesIda = await dayWrapper.locator(".custom-day_day");
             await datesIda.first().click();
 
             const vuelta = await page.locator("#arrivalInputDatePickerId");
+<<<<<<< HEAD
             await vuelta.click();
+=======
+            vuelta.click();
+>>>>>>> parent of f4fd19d (feat: update changes)
 
             const datesVuelta = await dayWrapper.locator(".custom-day_day");
             await datesVuelta.first().click();
@@ -49,8 +60,15 @@ test.describe("Busqueda en newSite de avianca", () => {
         else {
 
             const ida = await page.locator("#departureDateButtonId");
+<<<<<<< HEAD
             await ida.click();
             const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
+=======
+            ida.click();
+            const dayWrapper = page.locator(".ngb-dp-day", {
+                hasNot: await page.locator(".disabled")
+            });
+>>>>>>> parent of f4fd19d (feat: update changes)
             const datesIda = await dayWrapper.locator(".custom-day_day");
             await datesIda.first().click();
         }
