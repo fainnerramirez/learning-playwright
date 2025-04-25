@@ -9,6 +9,6 @@ test.describe("Busqueda en newSite de avianca", () => {
         await page.selectDateInitFlight();
         await page.selectDateEndFlight();
         await page.selectButtonAndClick("#searchButton");
-        await page.close();
+        // await page.close();
     });
 });

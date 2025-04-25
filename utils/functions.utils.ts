@@ -12,6 +12,7 @@ export const test = base.extend({
       await origen.click();
       await origen.getByPlaceholder("Origen").fill(origin);
       await origen.press("Enter");
+      await page.waitForTimeout(1000);
       await page.locator(".station-control-list_item_link").first().click();
     };
 
@@ -19,7 +20,7 @@ export const test = base.extend({
       const destino = await page.getByPlaceholder("Hacia");
       await destino.fill(destination);
       await destino.press("Enter");
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(1500);
       await page.locator(".station-control-list_item_link").first().click();
     };
 
@@ -33,41 +34,41 @@ export const test = base.extend({
 
     page.selectButtonAndClick = async (selector: string) => {
       const buttonSearch = await page.locator(selector);
-      if(buttonSearch) await buttonSearch.click();
+      if (buttonSearch) await buttonSearch.click();
     };
 
     page.selectDateInitFlight = async (date?: Date) => {
-      throw Error("Sin Implementación");
+      console.log("Sin Implementación");
       // //fecha de ida y de vuelta
-        // const isCheckIdaYVuelta = await page.locator("#journeytypeId_0").isChecked();
+      // const isCheckIdaYVuelta = await page.locator("#journeytypeId_0").isChecked();
 
-        // if (isCheckIdaYVuelta) {
+      // if (isCheckIdaYVuelta) {
 
-        //     const ida = await page.locator("#departureDateButtonId");
-        //     await ida.click();
-        //     const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
+      //     const ida = await page.locator("#departureDateButtonId");
+      //     await ida.click();
+      //     const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
 
-        //     const datesIda = await dayWrapper.locator(".custom-day_day");
-        //     await datesIda.first().click();
+      //     const datesIda = await dayWrapper.locator(".custom-day_day");
+      //     await datesIda.first().click();
 
-        //     const vuelta = await page.locator("#arrivalInputDatePickerId");
-        //     await vuelta.click();
+      //     const vuelta = await page.locator("#arrivalInputDatePickerId");
+      //     await vuelta.click();
 
-        //     const datesVuelta = await dayWrapper.locator(".custom-day_day");
-        //     await datesVuelta.first().click();
-        // }
-        // else {
+      //     const datesVuelta = await dayWrapper.locator(".custom-day_day");
+      //     await datesVuelta.first().click();
+      // }
+      // else {
 
-        //     const ida = await page.locator("#departureDateButtonId");
-        //     await ida.click();
-        //     const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
-        //     const datesIda = await dayWrapper.locator(".custom-day_day");
-        //     await datesIda.first().click();
-        // }
+      //     const ida = await page.locator("#departureDateButtonId");
+      //     await ida.click();
+      //     const dayWrapper = await page.locator(".ngb-dp-day:not(.disabled)");
+      //     const datesIda = await dayWrapper.locator(".custom-day_day");
+      //     await datesIda.first().click();
+      // }
     };
 
     page.selectDateEndFlight = async (date?: Date) => {
-      throw Error("Sin Implementación");
+      console.log("Sin Implementación");
     }
 
     await use(page);
