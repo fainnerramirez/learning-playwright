@@ -12,15 +12,16 @@ export const test = base.extend({
       await origen.click();
       await origen.getByPlaceholder("Origen").fill(origin);
       await origen.press("Enter");
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(500);
       await page.locator(".station-control-list_item_link").first().click();
     };
 
     page.selectDestinationFlight = async (destination: string) => {
-      const destino = await page.getByPlaceholder("Hacia");
-      await destino.fill(destination);
-      await destino.press("Enter");
-      await page.waitForTimeout(1500);
+      const destino = await page.getByPlaceholder("Hacia")
+      destino.fill(destination);
+      await page.waitForTimeout(500);
+      destino.press("Enter");
+      await page.waitForTimeout(3000);
       await page.locator(".station-control-list_item_link").first().click();
     };
 
