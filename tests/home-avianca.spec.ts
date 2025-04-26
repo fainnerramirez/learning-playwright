@@ -1,4 +1,3 @@
-import { clear } from "console";
 import { test } from "../utils/functions.utils";
 
 test.describe("Busqueda en newSite de avianca", () => {
@@ -15,7 +14,12 @@ test.describe("Busqueda en newSite de avianca", () => {
         const response = await page.waitForResponse(resp =>
             resp.url().includes('/pricing/api/v1/journeys')
         );
-        
+
+        //algo esta pasando..revisar los parametros enviados en la api de precing de vuelos
+        // sospecha que alguno no esta llegando..
+        //tomaste una captura de pantalla para ver los paramteros enviados a esa api
+        // la api responde bad request con la automatización.
+
         const json = await response.json();
         console.log("response: ", json);
 
