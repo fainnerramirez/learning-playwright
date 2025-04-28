@@ -13,7 +13,7 @@ export default defineConfig({
     },
     projects: [
         {
-            name: 'Chrome',
+            name: 'firefox',
             use: {
                 browserName: 'chromium',
             },
