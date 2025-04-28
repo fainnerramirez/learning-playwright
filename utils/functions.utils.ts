@@ -13,11 +13,11 @@ export const test = base.extend({
     };
 
     page.selectOriginFlight = async (origin: string) => {
-      const elementOrigin = await page.isElementPresent("#originDiv");
+      const elementOrigin = await page.isElementPresent("#originBtn");
       if (elementOrigin) {
-        const origen = await page.locator("#originDiv");
+        const origen = await page.locator("#originBtn");
         await page.waitForTimeout(1000);
-        await page.click("#originDiv");
+        await origen.click();
         await page.getByPlaceholder("Origen").fill(origin);
         await origen.press("Enter");
         await page.waitForTimeout(500);
