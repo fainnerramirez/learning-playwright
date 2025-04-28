@@ -9,6 +9,7 @@ declare module '@playwright/test' {
         selectDestinationFlight(destination: string): Promise<void>;
         selectDateInitFlight(date?: Date): Promise<void>;
         selectDateEndFlight(date?: Date): Promise<void>;
-        selectElementDOM(selector: string): Promise<ElementHandle<SVGElement | HTMLElement> | null>
+        selectElementDOM(selector: string): Promise<ElementHandle<SVGElement | HTMLElement> | null>;
+        setPhoto(photoName: string): Promise<void>;
     }
 }

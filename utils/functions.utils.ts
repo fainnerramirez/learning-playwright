@@ -53,6 +53,10 @@ export const test = base.extend({
       console.log("Sin Implementación");
     }
 
+    page.setPhoto = async (photoName: string) => {
+      await page.screenshot({ path: `${photoName}.png`, fullPage: true });
+    }
+
     await use(page);
   }
 });
