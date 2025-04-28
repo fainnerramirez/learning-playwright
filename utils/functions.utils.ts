@@ -16,9 +16,9 @@ export const test = base.extend({
       const elementOrigin = await page.isElementPresent("#originDiv");
       if (elementOrigin) {
         const origen = await page.selectElementDOM("#originDiv");
-        await origen?.click();
+        origen && await origen?.click();
         await page.getByPlaceholder("Origen").fill(origin);
-        await origen?.press("Enter");
+        origen && await origen?.press("Enter");
         await page.waitForTimeout(500);
         await page.locator(".station-control-list_item_link").first().click();
       }
