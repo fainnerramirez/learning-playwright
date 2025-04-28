@@ -1,4 +1,4 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
 
 export const test = base.extend({
   page: async ({ page }, use) => {
@@ -13,15 +13,13 @@ export const test = base.extend({
     };
 
     page.selectOriginFlight = async (origin: string) => {
-      const elementOrigin = await page.isElementPresent("#originBtn");
-      if (elementOrigin) {
-        await page.locator("#originBtn").click();
-        const origen = await page.getByPlaceholder("Origen");
-        origen.fill(origin);
-        await origen.press("Enter");
-        await page.waitForTimeout(500);
-        await page.locator(".station-control-list_item_link").first().click();
-      }
+      expect(page.locator("#originBtn"));
+      await page.locator("#originBtn").click();
+      const origen = await page.getByPlaceholder("Origen");
+      origen.fill(origin);
+      await origen.press("Enter");
+      await page.waitForTimeout(500);
+      await page.locator(".station-control-list_item_link").first().click();
     };
 
     page.selectDestinationFlight = async (destination: string) => {
