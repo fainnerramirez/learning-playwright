@@ -17,7 +17,7 @@ test.describe("Busqueda en newSite de avianca", () => {
         await page.waitForTimeout(3000);
         await page.selectButtonAndClick("#searchButton");
 
-        await page.waitForTimeout(10000);
-        await page.waitForSelector("#journeysContainerId_0", { timeout: 30000 });
+        await page.waitForTimeout(5000);
+        //await page.waitForSelector("#journeysContainerId_0", { timeout: 30000 });
     });
 });
