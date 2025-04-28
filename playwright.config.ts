@@ -5,18 +5,18 @@ export default defineConfig({
     testDir: './tests',
     timeout: 30000,
     use: {
-        //headless: true,
+        headless: true,
         viewport: { width: 1280, height: 720 },
         ignoreHTTPSErrors: true,
         video: 'off',
         screenshot: 'on',
     },
-    // projects: [
-    //     {
-    //         name: 'firefox',
-    //         use: {
-    //             browserName: 'chromium',
-    //         },
-    //     },
-    // ],
+    projects: [
+        {
+            name: 'firefox',
+            use: {
+                browserName: 'chromium',
+            },
+        },
+    ],
 });

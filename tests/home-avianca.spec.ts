@@ -2,11 +2,12 @@ import { firefox } from "@playwright/test";
 import { test } from "../utils/functions.utils";
 
 test.describe("Busqueda en newSite de avianca", () => {
-    test('Abrir Home de Avianca', async ({ }) => {
+    test('Abrir Home de Avianca', async ({ page }) => {
 
-        const browser = await firefox.launch({ headless: true })
-        const context = await browser.newContext();
-        const page = await context.newPage();
+        // const browser = await firefox.launch({ headless: true })
+        // const context = await browser.newContext();
+        // const page = await context.newPage();
+
         await page.goto("https://www.avianca.com/");
         await page.verifyCookies("#onetrust-accept-btn-handler");
         await page.waitForTimeout(1500);
