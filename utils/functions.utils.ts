@@ -15,7 +15,7 @@ export const test = base.extend({
     page.selectOriginFlight = async (origin: string) => {
       const elementOrigin = await page.isElementPresent("#originBtn");
       if (elementOrigin) {
-        await page.locator("button#originBtn").click();
+        await page.locator("#originBtn").click();
         const origen = await page.getByPlaceholder("Origen");
         origen.fill(origin);
         await origen.press("Enter");
