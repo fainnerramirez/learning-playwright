@@ -13,16 +13,16 @@ export const test = base.extend({
     };
 
     page.selectOriginFlight = async (origin: string) => {
-      const origen = await page.locator("#originDiv");
-      await origen.click();
-      await origen.getByPlaceholder("Origen").fill(origin);
-      await origen.press("Enter");
+      const origen = await page.selectElementDOM("#originDiv");
+      await origen?.click();
+      await page.getByPlaceholder("Origen").fill(origin);
+      await origen?.press("Enter");
       await page.waitForTimeout(500);
       await page.locator(".station-control-list_item_link").first().click();
     };
 
     page.selectDestinationFlight = async (destination: string) => {
-      const destino = await page.getByPlaceholder("Hacia")
+      const destino = await page.getByPlaceholder("Hacia");
       destino.fill(destination);
       await page.waitForTimeout(500);
       destino.press("Enter");
