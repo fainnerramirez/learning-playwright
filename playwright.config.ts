@@ -15,17 +15,17 @@ export default defineConfig({
         }
     },
     projects: [
-        // {
-        //     name: 'chromium', // Nombre corregido para que coincida con el navegador
-        //     use: {
-        //         browserName: 'chromium',
-        //     },
-        // },
         {
-            name: 'firefox',
+            name: 'chromium', // Nombre corregido para que coincida con el navegador
             use: {
-                browserName: 'firefox',
+                browserName: 'chromium',
             },
-        }
+        },
+        // {
+        //     name: 'firefox',
+        //     use: {
+        //         browserName: 'firefox',
+        //     },
+        // }
     ],
 });
