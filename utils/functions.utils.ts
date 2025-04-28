@@ -20,6 +20,7 @@ export const test = base.extend({
       await origen.press("Enter");
       await page.waitForTimeout(500);
       await page.locator(".station-control-list_item_link").first().click();
+      await page.setPhoto("origin-field");
     };
 
     page.selectDestinationFlight = async (destination: string) => {
@@ -29,6 +30,7 @@ export const test = base.extend({
       destino.press("Enter");
       await page.waitForTimeout(1000);
       await page.locator(".station-control-list_item_link").first().click();
+      await page.setPhoto("destino-field");
     };
 
     page.verifyCookies = async (selector: string) => {
@@ -36,12 +38,16 @@ export const test = base.extend({
       if (elementCookie) {
         await page.waitForTimeout(2000);
         await page.click(selector);
+        await page.setPhoto("cookies");
       }
     };
 
     page.selectButtonAndClick = async (selector: string) => {
       const buttonSearch = await page.locator(selector);
-      if (buttonSearch) await buttonSearch.click();
+      if (buttonSearch) {
+        await buttonSearch.click();
+        await page.setPhoto("click-boton-" + selector);
+      }
     };
 
     page.selectDateInitFlight = async (date?: Date) => {
