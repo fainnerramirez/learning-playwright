@@ -15,10 +15,11 @@ export const test = base.extend({
     page.selectOriginFlight = async (origin: string) => {
       const elementOrigin = await page.isElementPresent("#originDiv");
       if (elementOrigin) {
-        const origen = await page.selectElementDOM("#originDiv");
-        origen && await origen?.click();
+        const origen = await page.locator("#originDiv");
+        await page.waitForTimeout(1000);
+        await origen.click();
         await page.getByPlaceholder("Origen").fill(origin);
-        origen && await origen?.press("Enter");
+        await origen.press("Enter");
         await page.waitForTimeout(500);
         await page.locator(".station-control-list_item_link").first().click();
       }
