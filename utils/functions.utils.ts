@@ -13,12 +13,15 @@ export const test = base.extend({
     };
 
     page.selectOriginFlight = async (origin: string) => {
-      const origen = await page.selectElementDOM("#originDiv");
-      await origen?.click();
-      await page.getByPlaceholder("Origen").fill(origin);
-      await origen?.press("Enter");
-      await page.waitForTimeout(500);
-      await page.locator(".station-control-list_item_link").first().click();
+      const elementOrigin = await page.isElementPresent("#originDiv");
+      if (elementOrigin) {
+        const origen = await page.selectElementDOM("#originDiv");
+        await origen?.click();
+        await page.getByPlaceholder("Origen").fill(origin);
+        await origen?.press("Enter");
+        await page.waitForTimeout(500);
+        await page.locator(".station-control-list_item_link").first().click();
+      }
     };
 
     page.selectDestinationFlight = async (destination: string) => {
@@ -45,7 +48,7 @@ export const test = base.extend({
 
     page.selectDateInitFlight = async (date?: Date) => {
       console.log("Sin Implementación");
-      
+
     };
 
     page.selectDateEndFlight = async (date?: Date) => {
