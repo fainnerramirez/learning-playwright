@@ -13,7 +13,7 @@ export const test = base.extend({
     };
 
     page.selectOriginFlight = async (origin: string) => {
-      expect(page.locator("#originBtn"));
+      expect(page.locator("#originBtn")).toBeVisible();
       await page.locator("#originBtn").click();
       const origen = await page.getByPlaceholder("Origen");
       origen.fill(origin);
