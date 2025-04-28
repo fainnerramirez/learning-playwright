@@ -8,8 +8,8 @@ test.describe("Busqueda en newSite de avianca", () => {
         await page.verifyCookies("#onetrust-accept-btn-handler");
         await page.waitForTimeout(3000);
 
-        await page.selectOriginFlight("Mede");
-        await page.selectDestinationFlight("cali");
+        await page.selectOriginFlight("cali");
+        await page.selectDestinationFlight("Bogo");
         await page.waitForTimeout(3000);
         await page.selectButtonAndClick("#searchButton");
 
