@@ -15,18 +15,18 @@ export default defineConfig({
         }
     },
     projects: [
-        {
-            name: 'chromium', // Nombre corregido para que coincida con el navegador
-            use: {
-                browserName: 'chromium',
-            },
-        },
-        // Si realmente quieres usar Firefox, puedes añadirlo así:
         // {
-        //     name: 'firefox',
+        //     name: 'chromium', // Nombre corregido para que coincida con el navegador
         //     use: {
-        //         browserName: 'firefox',
+        //         browserName: 'chromium',
         //     },
-        // }
+        // },
+        // Si realmente quieres usar Firefox, puedes añadirlo así:
+        {
+            name: 'firefox',
+            use: {
+                browserName: 'firefox',
+            },
+        }
     ],
 });
